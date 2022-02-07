@@ -69,7 +69,7 @@ html {
 #footer {
 	margin: 2rem 0 0 0;
 	text-align: center;
-	position: relative;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 	color: white;
