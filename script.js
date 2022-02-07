@@ -1,5 +1,3 @@
-
-
 const content = document.getElementById('content');
 const searchButton = document.querySelector("#search");
 const inputField = document.querySelector('#input');
