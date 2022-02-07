@@ -6,7 +6,7 @@ let nextPage;
 searchButton.addEventListener("click", () => {
 	sendApiRequest()
 })
-document.addEventListener("keyup", function (event) {
+document.addEventListener("keydown", function (event) {
 	if (event.key === 'Enter') {
 		sendApiRequest()
 	}
@@ -22,7 +22,6 @@ async function sendApiRequest() {
 	let param = inputField.value;
 
 	let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${param}&app_id=${appID}&app_key=${appKey}`);
-	// console.log(response);
 	let data = await response.json();
 	nextPage = data._links.next
 
