@@ -93,3 +93,18 @@ html {
 	bottom: 0;
 	float: right;
 }
+
+@media all and (max-width: 768px) {
+	#innerContent{
+		width: 100%;
+	}
+	#card {
+		width: 90%;
+		border: 1px solid rgb(172, 172, 172);
+		border-radius: 4px;
+	}
+	
+	.card-img {
+		height: auto;
+	}
+}
