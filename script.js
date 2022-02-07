@@ -1,9 +1,9 @@
 
 
 const content = document.getElementById('content');
-
-let searchButton = document.querySelector("#search");
+const searchButton = document.querySelector("#search");
 const inputField = document.querySelector('#input');
+let nextPage;
 
 searchButton.addEventListener("click", () => {
 	sendApiRequest()
@@ -26,12 +26,12 @@ async function sendApiRequest() {
 	let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${param}&app_id=${appID}&app_key=${appKey}`);
 	// console.log(response);
 	let data = await response.json();
-	let nextPage = data._links.next
+	nextPage = data._links.next
 
-	useApiData(data, nextPage);
+	useApiData(data);
 }
 
-function useApiData(data, nextPage) {
+function useApiData(data) {
 	let myArray = [];
 
 	for (let i = 0; i < data.hits.length; i++) {
@@ -45,19 +45,24 @@ function useApiData(data, nextPage) {
     		<a href="${data.hits[i].recipe.url}" class="btn btn-primary">See the recipe</a>
   	 	</div>
 	</div>
-
-	`);
-
-	}
+	`)
+	};
 
 	let container = document.querySelector("#innerContent");
 	container.innerHTML = myArray.join('');
 
-	/**/
-	let btnDiv = document.createElement("div");
-	btnDiv.classList.add('container')
-	btnDiv.innerHTML = `<button id="more-btn" class="btn btn-primary">More recipes...</button>`;
-	content.append(btnDiv);
+	showNextBtn();
+}
+
+const showNextBtn = () => {
+	let moreBtnCon = document.getElementById("btn-con");
+	moreBtnCon.classList.remove('hidden');
+}
 
 
+const nextPageReq = async () => {
+	let response = await fetch(nextPage.href);
+	let data = await response.json();
+	nextPage = data._links.next
+	useApiData(data);
 }
