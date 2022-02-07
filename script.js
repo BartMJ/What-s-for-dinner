@@ -67,4 +67,11 @@ const nextPageReq = async () => {
 	let data = await response.json();
 	nextPage = data._links.next
 	useApiData(data);
+
+	scrollTop()
 }
+
+const scrollTop = () => {
+	window.scrollTo(0, 0);
+};
+
