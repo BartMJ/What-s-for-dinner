@@ -1,0 +1,79 @@
+html {
+	font-size: 16px;
+}
+
+#logo{
+	font-family: 'Dancing Script', cursive;;
+	font-size: 3rem;
+	text-align: center;
+	margin: 4rem 0 2.5rem 0;
+}
+#search{
+	margin: 0.5rem 0.5rem 0.5rem 0;
+	width: 10.5rem;
+}
+
+#input{
+	margin: 0.5rem;
+	width: 11.5rem;
+	border-radius: 4px;
+	width: 10.5rem;
+}
+
+#card{
+	width: 18rem;
+	border: 1px solid rgb(172, 172, 172);
+	border-radius: 4px;
+}
+
+.card-img {
+	height: 16rem;
+}
+
+#innerContent{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 75%;
+	margin: auto;
+	grid-column-gap: 2rem;
+	grid-row-gap: 1rem;
+
+}
+
+
+#back{
+	width: 100%;
+}
+
+#myInput {
+	
+	margin: 2rem;
+	display: flex;
+	justify-content: center;
+}
+#banner {
+	min-height: 14em; 
+	background-image: url('japanese-food-1326943.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+#banner h3 {
+	color: white;
+	background-color: burlywood;
+	padding-left: 1vw;
+}
+
+#footer {
+	margin: 2rem 0 0 0;
+	text-align: center;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	background-color: burlywood;
+}
+
+
