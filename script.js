@@ -6,9 +6,14 @@ let searchButton = document.querySelector("#search");
 const inputField = document.querySelector('#input');
 
 searchButton.addEventListener("click", () => {
-	console.log("button pressed");
 	sendApiRequest()
 })
+document.addEventListener("keyup", function (event) {
+	if (event.key === 'Enter') {
+		sendApiRequest()
+	}
+});
+
 // EDAMAN API Info	
 
 async function sendApiRequest() {
