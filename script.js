@@ -51,7 +51,9 @@ function useApiData(data) {
 	let container = document.querySelector("#innerContent");
 	container.innerHTML = myArray.join('');
 
-	showNextBtn();
+	if (myArray.length) {
+		showNextBtn();
+	}
 }
 
 const showNextBtn = () => {
