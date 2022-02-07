@@ -1,6 +1,6 @@
 
 
-//--------------------------------------------------------------------------------------------
+const content = document.getElementById('content');
 
 let searchButton = document.querySelector("#search");
 const inputField = document.querySelector('#input');
@@ -54,5 +54,10 @@ function useApiData(data, nextPage) {
 	container.innerHTML = myArray.join('');
 
 	/**/
+	let btnDiv = document.createElement("div");
+	btnDiv.classList.add('container')
+	btnDiv.innerHTML = `<button id="more-btn" class="btn btn-primary">More recipes...</button>`;
+	content.append(btnDiv);
+
 
 }
