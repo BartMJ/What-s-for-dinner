@@ -15,23 +15,23 @@ document.addEventListener("keyup", function (event) {
 });
 
 // EDAMAN API Info	
+const appID = 'ba721ae7';
+const appKey = '7862ffaf963445f811d887e5890bdca8';
+const url = 'https://api.edamam.com/api/search?';
 
 async function sendApiRequest() {
-	let appID = 'c8bc3025';
-	let appKey = 'e5617258b5c6b8ba5d7371baaf7255a8';
-	let url = 'https://api.edamam.com/search?';
-	let queryParams = "q=";
-	let ingredient = inputField.value;
 
-	let response = await fetch(`${url}app_id=${appID}&app_key=${appKey}&${queryParams}${ingredient}`);
-	console.log(response);
+	let param = inputField.value;
+
+	let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${param}&app_id=${appID}&app_key=${appKey}`);
+	// console.log(response);
 	let data = await response.json();
-	console.log(data);
+	let nextPage = data._links.next
 
-	useApiData(data);
+	useApiData(data, nextPage);
 }
 
-function useApiData(data) {
+function useApiData(data, nextPage) {
 	let myArray = [];
 
 	for (let i = 0; i < data.hits.length; i++) {
@@ -50,5 +50,9 @@ function useApiData(data) {
 
 	}
 
-	document.querySelector("#innerContent").innerHTML = myArray.join('');
+	let container = document.querySelector("#innerContent");
+	container.innerHTML = myArray.join('');
+
+	/**/
+
 }
