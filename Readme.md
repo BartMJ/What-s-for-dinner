@@ -1,1 +1,1 @@
-Search for recipes from different websites.
+Vanilla javascript project for searching food recipes from different websites.
